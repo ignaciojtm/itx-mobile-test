@@ -9,9 +9,18 @@ type Props = {
 
 export function ProductCard({ product }: Props) {
   return (
-    <Link to={`/product/${product.id}`} className={styles.card} aria-label={`${product.brand} ${product.model}`}>
+    <Link
+      to={`/product/${product.id}`}
+      className={styles.card}
+      aria-label={`${product.brand} ${product.model}`}
+    >
       <div className={styles.imageWrap}>
-        <img className={styles.image} src={product.imgUrl} alt={`${product.brand} ${product.model}`} loading="lazy" />
+        <img
+          className={styles.image}
+          src={product.imgUrl}
+          alt={`${product.brand} ${product.model}`}
+          loading="lazy"
+        />
       </div>
 
       <div className={styles.body}>

@@ -34,9 +34,7 @@ export async function getProductById(id: string): Promise<ProductDetails> {
   const cached = getCache<ProductDetails>(key, TTL);
   if (cached) return cached;
 
-  const data = await fetchJson<ProductDetails>(
-    endpoints.productById(id),
-  );
+  const data = await fetchJson<ProductDetails>(endpoints.productById(id));
 
   setCache(key, data);
   return data;

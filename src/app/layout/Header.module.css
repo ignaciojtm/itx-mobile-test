@@ -1,9 +1,9 @@
 .header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    background: white;
-    width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: white;
+  width: 100%;
 }
-  
+
 .inner {
   width: 100%;
   max-width: 100%;
@@ -38,58 +38,57 @@
     max-width: var(--container-wide);
   }
 }
-  
+
 .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: inherit;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
 }
-  
+
 .logo {
-    width: 18px;
-    height: 18px;
-    border-radius: 6px;
-    background: black;
-    display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: black;
+  display: inline-block;
 }
-  
+
 .title {
-    font-size: 16px;
+  font-size: 16px;
 }
-  
+
 .breadcrumbs {
-    flex: 1;
-    display: flex;
-    gap: 6px;
-    font-size: 13px;
-    color: rgba(0, 0, 0, 0.7);
+  flex: 1;
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.7);
 }
-  
+
 .crumb a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
-  
-  .crumb a:hover {
-    text-decoration: underline;
+
+.crumb a:hover {
+  text-decoration: underline;
 }
-  
+
 .sep {
-    margin: 0 6px;
-    color: rgba(0, 0, 0, 0.35);
+  margin: 0 6px;
+  color: rgba(0, 0, 0, 0.35);
 }
-  
+
 .cart {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-  
+
 .count {
-    font-weight: 700;
+  font-weight: 700;
 }
-  

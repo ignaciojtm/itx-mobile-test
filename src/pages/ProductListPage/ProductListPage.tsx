@@ -17,7 +17,9 @@ function matchesQuery(p: ProductListItem, q: string) {
 export function ProductListPage() {
   const [items, setItems] = useState<ProductListItem[]>([]);
   const [query, setQuery] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'error' | 'success'
+  >('idle');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
@@ -65,7 +67,9 @@ export function ProductListPage() {
         </label>
       </div>
 
-      {status === 'loading' && <p className={styles.state}>Cargando productos…</p>}
+      {status === 'loading' && (
+        <p className={styles.state}>Cargando productos…</p>
+      )}
       {status === 'error' && <p className={styles.state}>Error: {errorMsg}</p>}
 
       {status === 'success' && filtered.length === 0 && (

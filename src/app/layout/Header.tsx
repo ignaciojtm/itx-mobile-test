@@ -2,7 +2,9 @@ import { Link, useLocation, matchPath } from 'react-router-dom';
 import styles from './Header.module.css';
 
 function getBreadcrumbs(pathname: string) {
-  const crumbs: Array<{ label: string; to?: string }> = [{ label: 'PLP', to: '/' }];
+  const crumbs: Array<{ label: string; to?: string }> = [
+    { label: 'PLP', to: '/' },
+  ];
 
   const isPdp = matchPath('/product/:id', pathname);
   if (isPdp) crumbs.push({ label: 'PDP' });

@@ -19,13 +19,13 @@ describe('cache', () => {
   test('returns null when expired', () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2024-01-01T00:00:00.000Z'));
-  
+
     setCache('a', 123);
-  
+
     vi.advanceTimersByTime(2 * 60 * 60 * 1000);
-  
+
     expect(getCache('a', 60 * 60 * 1000)).toBeNull();
-  });  
+  });
 
   test('clear removes value', () => {
     setCache('a', 1);

@@ -1,5 +1,6 @@
 import { Link, useLocation, matchPath } from 'react-router-dom';
 import styles from './Header.module.css';
+import { useCartCount } from '../../store/useCartCount';
 
 function getBreadcrumbs(pathname: string) {
   const crumbs: Array<{ label: string; to?: string }> = [
@@ -17,7 +18,7 @@ function getBreadcrumbs(pathname: string) {
 export function Header() {
   const { pathname } = useLocation();
   const crumbs = getBreadcrumbs(pathname);
-
+  const cartCount = useCartCount();
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -36,7 +37,7 @@ export function Header() {
         </nav>
 
         <div className={styles.cart} aria-label="Cart items count">
-          🛒 <span className={styles.count}>0</span>
+          🛒 <span className={styles.count}>{cartCount}</span>
         </div>
       </div>
     </header>

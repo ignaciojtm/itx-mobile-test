@@ -5,6 +5,7 @@ import type { ProductDetails, ProductOption } from '../../domain/product/types';
 import { formatPriceEUR } from '../../utils/price';
 import { defaultOption } from '../../utils/defaults';
 import styles from './ProductDetailsPage.module.css';
+import { setCartCount } from '../../store/cartStore';
 
 type Status = 'idle' | 'loading' | 'error' | 'success';
 
@@ -100,6 +101,7 @@ export function ProductDetailsPage() {
         storageCode: selectedStorage.code,
       });
 
+      setCartCount(res.count);
       setAddedMsg(`Añadido al carrito. Total: ${res.count}`);
     } catch (e) {
       setAddedMsg(

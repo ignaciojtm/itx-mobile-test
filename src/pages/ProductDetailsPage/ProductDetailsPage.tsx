@@ -138,7 +138,6 @@ export function ProductDetailsPage() {
               <h1 className={styles.title}>
                 {product.brand} {product.model}
               </h1>
-              <div className={styles.meta}>ID: {product.id}</div>
             </div>
 
             <div className={styles.price}>{formatPriceEUR(product.price)}</div>

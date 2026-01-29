@@ -4,13 +4,13 @@ import { useCartCount } from '../../store/useCartCount';
 
 function getBreadcrumbs(pathname: string) {
   const crumbs: Array<{ label: string; to?: string }> = [
-    { label: 'PLP', to: '/' },
+    { label: 'Tienda', to: '/' },
   ];
 
   const isPdp = matchPath('/product/:id', pathname);
-  if (isPdp) crumbs.push({ label: 'PDP' });
+  if (isPdp) crumbs.push({ label: 'Detalle del producto' });
 
-  if (pathname === '/') return [{ label: 'PLP' }];
+  if (pathname === '/') return [{ label: 'Tienda' }];
 
   return crumbs;
 }

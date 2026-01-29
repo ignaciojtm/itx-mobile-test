@@ -3,16 +3,7 @@ import { getProducts } from '../../services/api/apiClient';
 import type { ProductListItem } from '../../domain/product/types';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
 import styles from './ProductListPage.module.css';
-
-function matchesQuery(p: ProductListItem, q: string) {
-  const query = q.trim().toLowerCase();
-  if (!query) return true;
-
-  return (
-    p.brand.toLowerCase().includes(query) ||
-    p.model.toLowerCase().includes(query)
-  );
-}
+import { matchesQuery } from './search';
 
 export function ProductListPage() {
   const [items, setItems] = useState<ProductListItem[]>([]);

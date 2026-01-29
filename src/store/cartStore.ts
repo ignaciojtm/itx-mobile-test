@@ -31,3 +31,9 @@ export function subscribeCart(listener: Listener) {
   listeners.add(listener);
   return () => listeners.delete(listener);
 }
+
+export function __resetCartStoreForTests() {
+  count = 0;
+  hydrated = false;
+  listeners.clear();
+}

@@ -7,7 +7,9 @@ export function AppLayout() {
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
-        <Outlet />
+        <div className={styles.container}>
+          <Outlet />
+        </div>
       </main>
     </div>
   );

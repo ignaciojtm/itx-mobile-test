@@ -1,0 +1,12 @@
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+  
+.main {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 16px;
+}
+  

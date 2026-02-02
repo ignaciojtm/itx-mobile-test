@@ -1,42 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
-import { getProducts } from '../../services/api/apiClient';
-import type { ProductListItem } from '../../domain/product/types';
+import { useMemo, useState } from 'react';
 import { ProductCard } from '../../components/ProductCard/ProductCard';
+import { useProducts } from '../../hooks/useProducts';
 import styles from './ProductListPage.module.css';
 import { matchesQuery } from './search';
 
 export function ProductListPage() {
-  const [items, setItems] = useState<ProductListItem[]>([]);
+  const { items, status, errorMsg } = useProducts();
   const [query, setQuery] = useState('');
-  const [status, setStatus] = useState<
-    'idle' | 'loading' | 'error' | 'success'
-  >('idle');
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function run() {
-      setStatus('loading');
-      setErrorMsg(null);
-
-      try {
-        const data = await getProducts();
-        if (cancelled) return;
-        setItems(data);
-        setStatus('success');
-      } catch (e) {
-        if (cancelled) return;
-        setStatus('error');
-        setErrorMsg(e instanceof Error ? e.message : 'Unknown error');
-      }
-    }
-
-    run();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const filtered = useMemo(() => {
     return items.filter((p) => matchesQuery(p, query));

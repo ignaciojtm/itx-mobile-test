@@ -3,10 +3,6 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { AppLayout } from '../../app/layout/AppLayout';
-import { ProductDetailsPage } from './ProductDetailsPage';
-import { __resetCartStoreForTests } from '../../store/cartStore';
-
 vi.mock('../../services/api/apiClient', async () => {
   return {
     getProductById: vi.fn(async () => ({
@@ -63,11 +59,14 @@ vi.mock('../../services/api/apiClient', async () => {
 
 beforeEach(() => {
   localStorage.clear();
-  __resetCartStoreForTests();
+  vi.resetModules();
 });
 
 describe('PDP add to cart', () => {
   test('updates header cart count after adding', async () => {
+    const { AppLayout } = await import('../../app/layout/AppLayout');
+    const { ProductDetailsPage } = await import('./ProductDetailsPage');
+
     render(
       <MemoryRouter initialEntries={['/product/ZmGrkLRPXOTpxsU4jjAcv']}>
         <Routes>
